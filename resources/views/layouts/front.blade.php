@@ -33,5 +33,7 @@
   <script src="{{ url('front/vendors/owl-carousel/js/owl.carousel.min.js') }}"></script>
   <script src="{{ url('front/vendors/aos/js/aos.js') }}"></script>
   <script src="{{ url('front/js/landingpage.js') }}"></script>
+
+  @yield('scripts')
 </body>
 </html>

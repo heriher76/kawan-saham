@@ -311,3 +311,11 @@
   </div>  
 </section>
 @stop
+
+@section('scripts')
+<script type="text/javascript">
+  $('#button-pelajari').click(function(){
+    $("a[href='#features-section']").click();
+  })
+</script>
+@stop

@@ -29,9 +29,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#feedback-section">Testimonials</a>
           </li>
+          @guest
           <li class="nav-item btn-contact-us pl-4 pl-lg-0">
-            <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Contact Us</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#loginModal">Login</button>
+            <button class="btn btn-success" data-toggle="modal" data-target="#registerModal">Register</button>
           </li>
+          @else
+          <li class="nav-item btn-contact-us pl-4 pl-lg-0">
+            <a class="btn btn-primary" href="{{ url('dashboard') }}">Pergi ke Dashboard</a>
+          </li>
+          @endguest
         </ul>
       </div>
     </div> 

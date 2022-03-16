@@ -1,3 +1,3 @@
 <footer class="border-top">
-	<p class="text-center text-muted pt-4">Copyright © 2019<a href="https://www.bootstrapdash.com/" class="px-1">Bootstrapdash.</a>All rights reserved.</p>
+	<p class="text-center text-muted pt-4">Copyright © @php date('Y') @endphp Kawan Saham. All rights reserved.</p>
 </footer>
