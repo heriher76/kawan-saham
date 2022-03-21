@@ -112,8 +112,8 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-4">
-      <div class="card h-100">
+    <div class="col-12 col-xl-8">
+      <div class="card">
         <div class="card-header pb-0 p-3">
           <div class="row">
             <div class="col-md-8 d-flex align-items-center">
@@ -152,234 +152,87 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-4">
+
+    <div class="col-12 col-xl-8">
       <div class="card h-100">
         <div class="card-header pb-0 p-3">
-          <h6 class="mb-0">Conversations</h6>
+          <h6 class="mb-0">Income Statement</h6>
         </div>
         <div class="card-body p-3">
-          <ul class="list-group">
-            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-              <div class="avatar me-3">
-                <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-              </div>
-              <div class="d-flex align-items-start flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">Sophie B.</h6>
-                <p class="mb-0 text-xs">Hi! I need more information..</p>
-              </div>
-              <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-            </li>
-            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-              <div class="avatar me-3">
-                <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-              </div>
-              <div class="d-flex align-items-start flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">Anne Marie</h6>
-                <p class="mb-0 text-xs">Awesome work, can you..</p>
-              </div>
-              <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-            </li>
-            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-              <div class="avatar me-3">
-                <img src="../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
-              </div>
-              <div class="d-flex align-items-start flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">Ivanna</h6>
-                <p class="mb-0 text-xs">About files I can..</p>
-              </div>
-              <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-            </li>
-            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-              <div class="avatar me-3">
-                <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-              </div>
-              <div class="d-flex align-items-start flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">Peterson</h6>
-                <p class="mb-0 text-xs">Have a great afternoon..</p>
-              </div>
-              <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-            </li>
-            <li class="list-group-item border-0 d-flex align-items-center px-0">
-              <div class="avatar me-3">
-                <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-              </div>
-              <div class="d-flex align-items-start flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                <p class="mb-0 text-xs">Hi! I need more information..</p>
-              </div>
-              <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-            </li>
-          </ul>
+          <canvas id="densityChart" width="600" height="400"></canvas>
         </div>
       </div>
     </div>
-    <div class="col-12 mt-4">
-      <div class="card mb-4">
-        <div class="card-header pb-0 p-3">
-          <h6 class="mb-1">Projects</h6>
-          <p class="text-sm">Architects design houses</p>
-        </div>
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-              <div class="card card-blog card-plain">
-                <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                  </a>
-                </div>
-                <div class="card-body px-1 pb-0">
-                  <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
-                  <a href="javascript:;">
-                    <h5>
-                      Modern
-                    </h5>
-                  </a>
-                  <p class="mb-4 text-sm">
-                    As Uber works through a huge amount of internal management turmoil.
-                  </p>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                    <div class="avatar-group mt-2">
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                        <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                        <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                        <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                        <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-              <div class="card card-blog card-plain">
-                <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="../assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                  </a>
-                </div>
-                <div class="card-body px-1 pb-0">
-                  <p class="text-gradient text-dark mb-2 text-sm">Project #1</p>
-                  <a href="javascript:;">
-                    <h5>
-                      Scandinavian
-                    </h5>
-                  </a>
-                  <p class="mb-4 text-sm">
-                    Music is something that every person has his or her own specific opinion about.
-                  </p>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                    <div class="avatar-group mt-2">
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                        <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                        <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                        <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                        <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-              <div class="card card-blog card-plain">
-                <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                  </a>
-                </div>
-                <div class="card-body px-1 pb-0">
-                  <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
-                  <a href="javascript:;">
-                    <h5>
-                      Minimalist
-                    </h5>
-                  </a>
-                  <p class="mb-4 text-sm">
-                    Different people have different taste, and various types of music.
-                  </p>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                    <div class="avatar-group mt-2">
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                        <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                        <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                        <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                      </a>
-                      <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                        <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-              <div class="card h-100 card-plain border">
-                <div class="card-body d-flex flex-column justify-content-center text-center">
-                  <a href="javascript:;">
-                    <i class="fa fa-plus text-secondary mb-3"></i>
-                    <h5 class=" text-secondary"> New project </h5>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
-  <footer class="footer pt-3  ">
-    <div class="container-fluid">
-      <div class="row align-items-center justify-content-lg-between">
-        <div class="col-lg-6 mb-lg-0 mb-4">
-          <div class="copyright text-center text-sm text-muted text-lg-start">
-            © <script>
-              document.write(new Date().getFullYear())
-            </script>,
-            made with <i class="fa fa-heart"></i> by
-            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-            for a better web.
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 </div>
+@stop
+
+@section('scripts')
+<script src="{{ url('back/assets/js/plugins/chartjs.min.js') }}"></script>
+<script type="text/javascript">
+const densityCanvas = document.getElementById("densityChart");
+
+Chart.defaults.font.family = "Teko";
+Chart.defaults.font.size = 22;
+Chart.defaults.color = "black";
+
+let gravityBars = '#F06292';
+let densityBars = '#4DB6AC';
+
+let incomeData = {
+  label: "Net Income",
+  data: @json($arrayNetIncome),
+  backgroundColor: densityBars,
+  yAxisID: "y-axis-density"
+};
+
+let revenueData = {
+  label: "Total Revenue",
+  data: @json($arrayRevenue),
+  backgroundColor: gravityBars,
+  yAxisID: "y-axis-gravity"
+};
+let planetData = {
+  labels: @json($arrayYear),
+  datasets: [incomeData, revenueData]
+};
+
+let chartOptions = {
+  barPercentage: 1,
+  categoryPercentage: 0.8,
+  scales: {
+    "y-axis-density": {
+      grid: {
+        color: densityBars,
+        tickColor: densityBars,
+        borderColor: densityBars
+      },
+      ticks: {
+        color: densityBars
+      },
+      position: "left"
+    },
+    "y-axis-gravity": {
+      grid: {
+        color: gravityBars,
+        tickColor: gravityBars,
+        borderColor: gravityBars
+      },
+      ticks: {
+        color: gravityBars
+      },
+      position: "right"
+    }
+  }
+};
+
+let barChart = new Chart(densityCanvas, {
+  type: "bar",
+  data: planetData,
+  options: chartOptions
+});
+</script>
 @stop
 
 @section('title-navbar')

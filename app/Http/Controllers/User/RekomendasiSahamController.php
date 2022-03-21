@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use DB;
+use Carbon\Carbon;
 
 class RekomendasiSahamController extends Controller
 {
@@ -53,17 +54,40 @@ class RekomendasiSahamController extends Controller
         $option = DB::table('options')->where('users_id', auth()->user()->id)->first();
 
         $client = new Client();
-        $res = $client->request('POST', env('URL_API_BACKEND').'/get-indicators', [
+        $resIndicator = $client->request('POST', env('URL_API_BACKEND').'/get-indicators', [
             'form_params' => [
                 'ticker' => $symbol,
                 'country' => $option->country ?? 'ID'
             ]
         ]);
 
-        if ($res->getStatusCode() == 200) {
-            $listIndicator = json_decode($res->getBody()->getContents())->data;
+        $resIncomeStatement = $client->request('POST', env('URL_API_BACKEND').'/get-income-statement', [
+            'form_params' => [
+                'ticker' => $symbol,
+                'country' => $option->country ?? 'ID'
+            ]
+        ]);
 
-            return view('user.rekomendasi-saham.detail-saham', compact('listIndicator', 'signal', 'symbol'));
+        if ($resIndicator->getStatusCode() == 200 && $resIncomeStatement->getStatusCode() == 200) {
+            $listIndicator = json_decode($resIndicator->getBody()->getContents())->data;
+            $listIncomeStatement = json_decode($resIncomeStatement->getBody()->getContents())->data;
+
+            $arrayNetIncome = [];
+            foreach($listIncomeStatement as $value) {
+                array_push($arrayNetIncome, $value->{'Net Income'});
+            } 
+
+            $arrayRevenue = [];
+            foreach($listIncomeStatement as $value) {
+                array_push($arrayRevenue, $value->{'Total Revenue'});
+            } 
+
+            $arrayYear = [];
+            foreach($listIncomeStatement as $value) {
+                array_push($arrayYear, Carbon::parse($value->{'Date'})->year);
+            } 
+            
+            return view('user.rekomendasi-saham.detail-saham', compact('listIndicator', 'listIncomeStatement', 'signal', 'symbol', 'arrayNetIncome', 'arrayRevenue', 'arrayYear'));
         }else{
             return 'Error Fetch Data API';
         }
