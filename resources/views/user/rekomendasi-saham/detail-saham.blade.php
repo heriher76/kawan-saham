@@ -15,7 +15,7 @@
                 PT Bank Rakyat Indonesia
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-                BBRI
+                {{ $symbol }}
               </p>
             </div>
           </div>
@@ -69,7 +69,110 @@
 
 <div class="py-4 mx-1">
   <div class="row">
-    <div class="col-12 col-xl-4">
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6 class="mb-0">Grafik Data</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="componentPerWeek" width="600" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6 class="mb-0">Income Statement</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="densityChart" width="600" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Informasi</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tr>
+                <th>Avg Volume</th>
+                <td>{{ $information->avgVolume }}</td>
+              </tr>
+              <tr>
+                <th>Beta</th>
+                <td>{{ $information->beta }}</td>
+              </tr>
+              <tr>
+                <th>Daily Range</th>
+                <td>{{ $information->dailyRange }}</td>
+              </tr>
+              <tr>
+                <th>Dividend</th>
+                <td>{{ $information->dividend }}</td>
+              </tr>
+              <tr>
+                <th>Eps</th>
+                <td>{{ $information->eps }}</td>
+              </tr>
+              <tr>
+                <th>Market Cap</th>
+                <td>{{ $information->marketCap }}</td>
+              </tr>
+              <tr>
+                <th>Next Earning Date</th>
+                <td>{{ $information->nextEarningDate }}</td>
+              </tr>
+              <tr>
+                <th>One Year Return</th>
+                <td>{{ $information->oneYearReturn }}</td>
+              </tr>
+              <tr>
+                <th>Open</th>
+                <td>{{ $information->open }}</td>
+              </tr>
+              <tr>
+                <th>Prev Close</th>
+                <td>{{ $information->prevClose }}</td>
+              </tr>
+              <tr>
+                <th>Ratio</th>
+                <td>{{ $information->ratio }}</td>
+              </tr>
+              <tr>
+                <th>Revenue</th>
+                <td>{{ $information->revenue }}</td>
+              </tr>
+              <tr>
+                <th>Shares Outstanding</th>
+                <td>{{ $information->sharesOutstanding }}</td>
+              </tr>
+              <tr>
+                <th>Volume</th>
+                <td>{{ $information->volume }}</td>
+              </tr>
+              <tr>
+                <th>Week Range</th>
+                <td>{{ $information->weekRange }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
       <div class="card mb-4">
         <div class="card-header pb-0">
           <h6>Analisis Indikator</h6>
@@ -85,7 +188,7 @@
                 </tr>
               </thead>
               <tbody>
-              	@foreach($listIndicator as $indicator)
+                @foreach($listIndicator as $indicator)
                 <tr>
                   <td class="align-middle text-center">
                     <div class="d-flex">
@@ -112,58 +215,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-8">
-      <div class="card">
-        <div class="card-header pb-0 p-3">
-          <div class="row">
-            <div class="col-md-8 d-flex align-items-center">
-              <h6 class="mb-0">Profile Information</h6>
-            </div>
-            <div class="col-md-4 text-end">
-              <a href="javascript:;">
-                <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body p-3">
-          <p class="text-sm">
-            Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).
-          </p>
-          <hr class="horizontal gray-light my-4">
-          <ul class="list-group">
-            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
-            <li class="list-group-item border-0 ps-0 pb-0">
-              <strong class="text-dark text-sm">Social:</strong> &nbsp;
-              <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                <i class="fab fa-facebook fa-lg"></i>
-              </a>
-              <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                <i class="fab fa-twitter fa-lg"></i>
-              </a>
-              <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                <i class="fab fa-instagram fa-lg"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-xl-8">
-      <div class="card h-100">
-        <div class="card-header pb-0 p-3">
-          <h6 class="mb-0">Income Statement</h6>
-        </div>
-        <div class="card-body p-3">
-          <canvas id="densityChart" width="600" height="400"></canvas>
-        </div>
-      </div>
-    </div>
-    
   </div>
 </div>
 @stop
@@ -201,6 +253,8 @@ let planetData = {
 let chartOptions = {
   barPercentage: 1,
   categoryPercentage: 0.8,
+  responsive: true,
+  maintainAspectRatio: false,
   scales: {
     "y-axis-density": {
       grid: {
@@ -231,6 +285,80 @@ let barChart = new Chart(densityCanvas, {
   type: "bar",
   data: planetData,
   options: chartOptions
+});
+
+//Another Graph
+
+const componentPerWeek = document.getElementById("componentPerWeek");
+
+const data = {
+  labels: @json($labelDateGraph),                 
+  datasets: [
+    {
+      label: 'Close',
+      data: @json($listDataGraph),
+      borderColor: '#36B368',
+      backgroundColor: '#36B368',
+    }
+  ]
+};
+
+let lineOptions = {
+  barPercentage: 1,
+  categoryPercentage: 0.8,
+  scales: {
+    "y-axis-density": {
+      grid: {
+        color: densityBars,
+        tickColor: densityBars,
+        borderColor: densityBars
+      },
+      ticks: {
+        color: densityBars
+      },
+      position: "left"
+    }
+  },
+  scales: {
+    x: {
+      ticks: {
+        font: {
+          size: 0,
+        }
+      }
+    }
+  },
+  parsing: {
+    xAxisKey: 'Date',
+    yAxisKey: 'Close'
+  },
+  plugins: {
+    tooltip: {
+      callbacks: {
+        beforeTitle: function(context) {
+          console.log(context)
+        },
+        afterBody: function(context) {
+          const newLineArray = [];
+          newLineArray.push('Adj Close: '+context[0].raw['Adj Close']);
+          newLineArray.push('High: '+context[0].raw['High']);
+          newLineArray.push('Low: '+context[0].raw['Low']);
+          newLineArray.push('Open: '+context[0].raw['Open']);
+          newLineArray.push('Volume: '+context[0].raw['Volume']);
+          return newLineArray;
+        }
+      }
+    },
+    legend: {
+      display: false
+    },
+  }
+};
+
+let lineChart = new Chart(componentPerWeek, {
+  type: 'line',
+  data: data,
+  options: lineOptions,
 });
 </script>
 @stop

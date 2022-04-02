@@ -68,9 +68,25 @@ class RekomendasiSahamController extends Controller
             ]
         ]);
 
-        if ($resIndicator->getStatusCode() == 200 && $resIncomeStatement->getStatusCode() == 200) {
+        $resDataGraph = $client->request('POST', env('URL_API_BACKEND').'/get-data', [
+            'form_params' => [
+                'ticker' => $symbol,
+                'country' => $option->country ?? 'ID'
+            ]
+        ]);
+
+        $resInformation = $client->request('POST', env('URL_API_BACKEND').'/get-info', [
+            'form_params' => [
+                'ticker' => $symbol,
+                'country' => $option->country ?? 'ID'
+            ]
+        ]);
+
+        if ($resIndicator->getStatusCode() == 200 && $resIncomeStatement->getStatusCode() == 200 && $resDataGraph->getStatusCode() == 200) {
             $listIndicator = json_decode($resIndicator->getBody()->getContents())->data;
             $listIncomeStatement = json_decode($resIncomeStatement->getBody()->getContents())->data;
+            $listDataGraph = json_decode($resDataGraph->getBody()->getContents())->data;
+            $information = json_decode($resInformation->getBody()->getContents())->data;
 
             $arrayNetIncome = [];
             foreach($listIncomeStatement as $value) {
@@ -86,8 +102,10 @@ class RekomendasiSahamController extends Controller
             foreach($listIncomeStatement as $value) {
                 array_push($arrayYear, Carbon::parse($value->{'Date'})->year);
             } 
-            
-            return view('user.rekomendasi-saham.detail-saham', compact('listIndicator', 'listIncomeStatement', 'signal', 'symbol', 'arrayNetIncome', 'arrayRevenue', 'arrayYear'));
+
+            $labelDateGraph = array_filter(array_column($listDataGraph, 'Date'));
+
+            return view('user.rekomendasi-saham.detail-saham', compact('listIndicator', 'listIncomeStatement', 'signal', 'symbol', 'arrayNetIncome', 'arrayRevenue', 'arrayYear', 'labelDateGraph', 'listDataGraph', 'information'));
         }else{
             return 'Error Fetch Data API';
         }
