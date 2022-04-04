@@ -58,7 +58,7 @@
           </div>
           <div class="col-4 text-end">
             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-              <i class="ni ni-circle-08 text-lg opacity-10" aria-hidden="true"></i>
+              <i class="ni ni-chart-bar-32 text-lg opacity-10" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
           </div>
           <div class="col-4 text-end">
             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-              <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+              <i class="ni ni-vector text-lg opacity-10" aria-hidden="true"></i>
             </div>
           </div>
         </div>
