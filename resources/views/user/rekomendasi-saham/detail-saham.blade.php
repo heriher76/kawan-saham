@@ -216,6 +216,28 @@
       </div>
     </div>
 
+    <div class="col-12 col-xl-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6 class="mb-0">Balance Sheet</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="balanceSheetChart" width="600" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6 class="mb-0">Cash Flow</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="cashflowChart" width="600" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 @stop
@@ -223,14 +245,18 @@
 @section('scripts')
 <script src="{{ url('back/assets/js/plugins/chartjs.min.js') }}"></script>
 <script type="text/javascript">
+const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
+
+const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+
 const densityCanvas = document.getElementById("densityChart");
 
 Chart.defaults.font.family = "Teko";
 Chart.defaults.font.size = 22;
 Chart.defaults.color = "black";
 
-let gravityBars = '#F06292';
-let densityBars = '#4DB6AC';
+let gravityBars = randomRGB();
+let densityBars = randomRGB();
 
 let incomeData = {
   label: "Net Income",
@@ -360,6 +386,138 @@ let lineChart = new Chart(componentPerWeek, {
   data: data,
   options: lineOptions,
 });
+
+//Balance Sheet
+
+const balanceSheetChart = document.getElementById("balanceSheetChart");
+
+var balanceSheet = @json($detailInformation->balanceSheet);
+
+let datasetBalanceSheet = [];
+let keyBS;
+for (keyBS of Object.keys(balanceSheet)) {
+  var theData = Object.keys(balanceSheet[keyBS]).map(function(key){ 
+    return balanceSheet[keyBS][key] 
+  });
+
+  datasetBalanceSheet.push({"label": keyBS, "data": theData, 'borderColor': randomRGB(), 'backgroundColor': randomRGB()});
+}
+
+for (var prop in balanceSheet) {
+    var labelsBalanceSheet = balanceSheet[prop]
+    break;
+}
+
+const dataBalanceSheet = {
+  labels: Object.keys(labelsBalanceSheet).map(function(dataBS){ var dateBS = new Date(dataBS); return dateBS.getFullYear() }),
+  datasets: datasetBalanceSheet
+};
+
+const configBalanceSheet = {
+  type: 'bar',
+  data: dataBalanceSheet,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: 'top',
+        labels: {
+          font: {
+              size: 14
+          }
+        }
+      },
+      tooltip: {
+        titleFont: {
+          size: 15
+        },
+        bodyFont: {
+          size: 15
+        },
+        footerFont: {
+          size: 15 // there is no footer by default
+        }
+      }
+    },
+    scales: {
+      y: {
+        ticks: {
+          font: {
+            size: 10,
+          }
+        }
+      }
+    },
+  },
+};
+
+let chartBS = new Chart(balanceSheetChart, configBalanceSheet);
+
+//Cash Flow
+
+const cashflowChart = document.getElementById("cashflowChart");
+
+var cashFlow = @json($detailInformation->cashFlow);
+
+let datasetcashFlow = [];
+let keyCF;
+for (keyCF of Object.keys(cashFlow)) {
+  var theData = Object.keys(cashFlow[keyCF]).map(function(key){ 
+    return cashFlow[keyCF][key] 
+  });
+
+  datasetcashFlow.push({"label": keyCF, "data": theData, 'borderColor': randomRGB(), 'backgroundColor': randomRGB()});
+}
+
+for (var prop in cashFlow) {
+    var labelscashFlow = cashFlow[prop]
+    break;
+}
+
+const datacashFlow = {
+  labels: Object.keys(labelscashFlow).map(function(dataBS){ var dateBS = new Date(dataBS); return dateBS.getFullYear() }),
+  datasets: datasetcashFlow
+};
+
+const configcashFlow = {
+  type: 'bar',
+  data: datacashFlow,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: 'top',
+        labels: {
+          font: {
+              size: 14
+          }
+        }
+      },
+      tooltip: {
+        titleFont: {
+          size: 15
+        },
+        bodyFont: {
+          size: 15
+        },
+        footerFont: {
+          size: 15 // there is no footer by default
+        }
+      }
+    },
+    scales: {
+      y: {
+        ticks: {
+          font: {
+            size: 10,
+          }
+        }
+      }
+    },
+  },
+};
+
+let chartCF = new Chart(cashflowChart, configcashFlow);
 </script>
 @stop
 

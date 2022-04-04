@@ -82,7 +82,14 @@ class RekomendasiSahamController extends Controller
             ]
         ]);
 
-        if ($resIndicator->getStatusCode() == 200 && $resIncomeStatement->getStatusCode() == 200 && $resDataGraph->getStatusCode() == 200) {
+        $resDetailInformation = $client->request('POST', env('URL_API_BACKEND').'/get-detail-info', [
+            'form_params' => [
+                'ticker' => $symbol,
+                'country' => $option->country ?? 'ID'
+            ]
+        ]);
+
+        if ($resIndicator->getStatusCode() == 200 && $resIncomeStatement->getStatusCode() == 200 && $resDataGraph->getStatusCode() == 200 && $resInformation->getStatusCode() == 200 && $resDetailInformation->getStatusCode() == 200) {
             $listIndicator = json_decode($resIndicator->getBody()->getContents())->data;
             $listIncomeStatement = json_decode($resIncomeStatement->getBody()->getContents())->data;
             $listDataGraph = json_decode($resDataGraph->getBody()->getContents())->data;
@@ -105,7 +112,9 @@ class RekomendasiSahamController extends Controller
 
             $labelDateGraph = array_filter(array_column($listDataGraph, 'Date'));
 
-            return view('user.rekomendasi-saham.detail-saham', compact('listIndicator', 'listIncomeStatement', 'signal', 'symbol', 'arrayNetIncome', 'arrayRevenue', 'arrayYear', 'labelDateGraph', 'listDataGraph', 'information'));
+            $detailInformation = json_decode($resDetailInformation->getBody()->getContents())->data;
+
+            return view('user.rekomendasi-saham.detail-saham', compact('listIndicator', 'listIncomeStatement', 'signal', 'symbol', 'arrayNetIncome', 'arrayRevenue', 'arrayYear', 'labelDateGraph', 'listDataGraph', 'information', 'detailInformation'));
         }else{
             return 'Error Fetch Data API';
         }

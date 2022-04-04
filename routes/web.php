@@ -19,6 +19,10 @@ Route::get('/', 'FrontController@index')->name('home');
 
 Route::get('/dashboard', 'User\DashboardController@index')->name('user.dashboard');
 
+Route::get('/my-profile', 'User\ProfileController@index')->name('user.my-profile');
+
+Route::put('/my-profile', 'User\ProfileController@update')->name('user.update-profile');
+
 Route::get('/rekomendasi-saham', 'User\RekomendasiSahamController@index')->name('user.rekomendasi-saham');
 
 Route::get('/rekomendasi-saham/{signal}', 'User\RekomendasiSahamController@getBySignal')->name('user.get-by-signal');
