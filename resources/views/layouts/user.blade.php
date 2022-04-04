@@ -19,6 +19,7 @@
   <link href="{{ url('back/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ url('back/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
+  @yield('styles')
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
