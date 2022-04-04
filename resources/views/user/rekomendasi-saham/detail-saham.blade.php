@@ -216,6 +216,244 @@
       </div>
     </div>
 
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Calendar</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+              @php $calendar = $detailInformation->calendar; @endphp
+              <tr>
+                <th>Earnings Date</th>
+                <td>{{ date_format(date_create(reset($calendar->{'Earnings Date'})), 'd M Y') }}</td>
+              </tr>
+              <tr>
+                <th>Earnings Average</th>
+                <td>{{ reset($calendar->{'Earnings Average'}) }}</td>
+              </tr>
+              <tr>
+                <th>Earnings High</th>
+                <td>{{ reset($calendar->{'Earnings High'}) }}</td>
+              </tr>
+              <tr>
+                <th>Earnings Low</th>
+                <td>{{ reset($calendar->{'Earnings Low'}) }}</td>
+              </tr>
+              <tr>
+                <th>Revenue Average</th>
+                <td>{{ reset($calendar->{'Revenue Average'}) }}</td>
+              </tr>
+              <tr>
+                <th>Revenue High</th>
+                <td>{{ reset($calendar->{'Revenue High'}) }}</td>
+              </tr>
+              <tr>
+                <th>Revenue Low</th>
+                <td>{{ reset($calendar->{'Revenue Low'}) }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Stock Split</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+              @php $stockSplits = $detailInformation->stockSplits; @endphp
+              
+              @foreach($stockSplits as $key => $stock)
+              <tr>
+                <th>{{ date_format(date_create($key), 'd M Y') }}</th>
+                <th>{{ $stock }}</th>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Earnings</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+              @php $earnings = $detailInformation->earnings; $numbering = 1; @endphp
+              
+              <tr>
+                <th>No</th>
+                <th>Date</th>
+                <th>Earnings</th>
+                <th>Revenue</th>
+              </tr>
+              @foreach($earnings as $key => $earning)
+              <tr>
+                <td>{{ $numbering++ }}</td>
+                <td>{{ $key }}</td>
+                @foreach($earning as $label => $earn)
+                  <td>
+                      {{ $earn }}
+                  </td>
+                @endforeach
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Holders</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+              @php $holders = $detailInformation->holders; $numbering = 1; @endphp
+              
+              @foreach($holders as $key => $holder)
+              <tr>
+                <th>{{ $key+1 }}</th>
+                @foreach($holder as $hold)
+                <th>{{ $hold }}</th>
+                @endforeach
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Institution Holders</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+              @php $institutionHolders = $detailInformation->institutionHolders; $numbering = 1; @endphp
+              
+              <tr>
+                <th>No</th>
+                <th>% Out</th>
+                <th>Date Reported</th>
+                <th>Holder</th>
+                <th>Shares</th>
+                <th>Value</th>
+              </tr>
+              @foreach($institutionHolders as $key => $holder)
+              <tr>
+                <td>{{ $key+1 }}</td>
+                <td>{{ $holder->{'% Out'} }}</td>
+                <td>{{ $holder->{'Date Reported'} }}</td>
+                <td>{{ $holder->{'Holder'} }}</td>
+                <td>{{ $holder->{'Shares'} }}</td>
+                <td>{{ $holder->{'Value'} }}</td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center">
+              <h6 class="mb-0">Dividens</h6>
+            </div>
+            <div class="col-md-4 text-end">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+              @php $dividens = $detailInformation->dividens; $numbering = 1; @endphp
+              
+              <tr>
+                <th>No</th>
+                <th>Date</th>
+                <th>Cash</th>
+              </tr>
+              @foreach($dividens as $key => $dividen)
+              <tr>
+                <td>{{ $numbering++ }}</td>
+                <td>{{ date_format(date_create($key), 'd M Y') }}</td>
+                <td>{{ $dividen }}</td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="col-12 col-xl-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
@@ -429,7 +667,7 @@ const configBalanceSheet = {
       },
       tooltip: {
         titleFont: {
-          size: 15
+          size: 0
         },
         bodyFont: {
           size: 15
@@ -495,7 +733,7 @@ const configcashFlow = {
       },
       tooltip: {
         titleFont: {
-          size: 15
+          size: 0
         },
         bodyFont: {
           size: 15
