@@ -28,7 +28,7 @@ class DashboardController extends Controller
 
         $resStockUS = $client->request('POST', env('URL_API_BACKEND').'/get-list-stock', [
             'form_params' => [
-                'country' => 'ID'
+                'country' => 'US'
             ]
         ]);
 
